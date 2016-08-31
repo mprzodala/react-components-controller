@@ -1,1 +1,1 @@
-export {default} from './lib/dynamic-components';
+export {default} from './lib/controller';
