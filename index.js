@@ -1,1 +1,1 @@
-export {default} from './lib/controller';
+export {default} from './src/controller';
