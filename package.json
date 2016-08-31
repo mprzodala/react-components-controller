@@ -1,0 +1,46 @@
+{
+  "name": "react-components-controller",
+  "version": "0.1.0",
+  "main": "./index",
+  "description": "Controller for React components",
+  "repository": "https://github.com/mprzodala/react-components-controller",
+  "homepage": "https://github.com/mprzodala/react-components-controller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mprzodala/react-components-controller/issues"
+  },
+  "keyword": [
+    "react-component",
+    "component-manage",
+    "manage",
+    "controller",
+    "react-controller"
+  ],
+  "authors": [
+    "Mariusz Przodała"
+  ],
+  "scripts": {
+    "test": "babel-node node_modules/.bin/_mocha --require test/index.js --recursive test --reporter list"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^0.14.0",
+    "react-dom": "^15.0.0 || ^0.14.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.5.0"
+  }
+}
