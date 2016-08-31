@@ -43,6 +43,18 @@ export default ({extendController}) => {
 * componentName - [String] name of virtual instance where main component will be displayed before this component
 * component - [Component] React Component to display
 
+**registerComponentExtend(componentName, extend, options)**
+
+* componentName - [String] name of virtual instance where main component will be displayed
+* extend - [Object] Object with function that will be extended and overwrite
+* options - [Object] of additional information. You can use it in the component
+
+**extendComponent(componentName, extend, options)**
+
+* componentName - [String] name of virtual instance where main component will be displayed
+* extend - [Object] Object with function that will be extended and overwrite
+* options - [Object] of additional information. You can use it in the component
+
 **extendController(controller)**
 
 * controller - [DynamicController] more important controller that will overwrite old controller 
