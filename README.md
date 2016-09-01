@@ -1,25 +1,62 @@
-### EXAMPLE ###
+<img src="https://raw.githubusercontent.com/mprzodala/react-components-controller/master/chart.png">
 
+### EXAMPLE CODE###
 ```
+----project.js-----
 import React from 'react';
-import DynamicController from 'meteor/universe:dynamic-components';
-import ListinItem from '../components/ListingItem';
-import ListingInsideItem from '../components/ListingInsideItem';
-import ListinHeader from '../components/ListingHeader';
-import ListinFooter from '../components/ListingFooter';
+import ReactComponentsController from 'react-components-controller';
+import PackageComponent from '/packages/somepackage/packege';
+import ListingItem from './mods/ListingItem';
+import Navbar from './mods/Navbar';
 
-let Controller = new DynamicController();
-Controller.registerComponent('Item',ListinItem);
-Controller.registerComponent('InsideItem',ListingInsideItem);
-Controller.registerBeforeComponent('Item',ListinHeader);
-Controller.registerAfterComponent('Item',ListinFooter);
+const Controller = new ReactComponentsController();
+Controller.registerComponent('ListingItem', ListingItem);
+
+export default () => (
+    <div>
+        <Navbar />
+        <PackageComponent extendController={Controller} />
+    </div>
+);
+
+----package.js----
+import React from 'react';
+import ReactComponentsController from 'react-components-controller';
+import ListingWrapper from './components/ListingWrapper';
+import ListingContainer from './components/ListingContainer';
+import ListingItem from './components/ListingItem';
+import ListingItemAvatar from './components/ListingItemAvatar';
+
+const Controller = new ReactComponentsController();
+Controller.registerComponent('ListingWrapper', ListingWrapper);
+Controller.registerComponent('ListingContainer', ListingContainer);
+Controller.registerComponent('ListingItem', ListingItem);
+Controller.registerComponent('ListingItemAvatar', ListingItemAvatar);
 
 export default ({extendController}) => {
     if(extendController){
         Controller.extendController(extendController);
     }
     return (
-        <div className="listin-container">Listing Wrapper {Controller.getComponent('Item',{test:'aaaaaa'})}</div>
+        <div>
+            {Controller.getComponent('ListingWrapper',{ListingTitle:'Default lising'})}
+        </div>
+    );
+}
+
+
+----ListingWrapper.jsx---
+import React from 'react';
+
+export default ({Controller, ListingTitle}) => {
+    if(extendController){
+        Controller.extendController(extendController);
+    }
+    return (
+        <div>
+            {ListingTitle}
+            {Controller.getComponent('ListingContainer',{ListingContainerTitle:'Default lising container title'})}
+        </div>
     );
 }
 ```
