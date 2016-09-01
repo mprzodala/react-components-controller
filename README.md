@@ -60,8 +60,19 @@ export default ({Controller, ListingTitle}) => {
     );
 }
 ```
+## Methods##
+| Method | Attributes | Description |
+|---|---|---|
+| registerComponent | componentName: [String] <br/>component: [ReactComponent]<br/>options: [Object] | Register component in Controller |
+| registerBeforeComponent | componentName: [String] <br/>component: [ReactComponent] | You can register component to display before some basic register component |
+| registerAfterComponent | componentName: [String] <br/>component: [ReactComponent] | You can register component to display after some basic register component |
+| registerComponentExtend | componentName: [String] <br/>extend: [Object] <br/>options: [Object] | You can register components extend it will be extended after call extendController method |
+| extendComponent | componentName: [String] <br/>extend: [Object] <br/>options: [Object] | You can extend methods of registred components for example render method |
+| extendController | controller: [ReactComponentsController] | You can overwrite and extend controller by another controller. All registred component with the same name will be overwrite |
+| getComponent | componentName: [String] <br/>props: [Object] <br/>options: [Object] | Render registred component by his registration name |
 
-## Methods ##
+
+## Methods description ##
 **registerComponent(componentName, component, options)**
 
 * componentName - [String] name of virtual instance where Your component will be displayed
@@ -101,3 +112,6 @@ export default ({Controller, ListingTitle}) => {
 * componentName - [String] name of virtual instance where Your component will be displayed
 * props - [Object] Props that React Component will have
 * options - [Object] additional information. You can use it in the component and overwrite defined options
+
+
+TESTS WILL BE SOON
