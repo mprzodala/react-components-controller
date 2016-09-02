@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/mprzodala/react-components-controller/master/chart.png">
 
 ### EXAMPLE CODE###
-```
+```js
 ----project.js-----
 import React from 'react';
 import ReactComponentsController from 'react-components-controller';
