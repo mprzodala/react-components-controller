@@ -1,6 +1,6 @@
 {
   "name": "react-components-controller",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "description": "Controller for React components",
@@ -60,10 +60,6 @@
   },
   "dependencies": {
     "invariant": "^2.2.1",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.get": "^4.4.2",
-    "lodash.isequal": "^4.4.0",
-    "lodash.set": "^4.3.2",
-    "lodash.xorwith": "^4.5.0"
+    "lodash": "^4.15.0"
   }
 }
