@@ -121,7 +121,14 @@ const Controller2 = new ReactComponentsController();
 
 Controller.registerComponent('test1', testComponent);
 
-Controller2.registerComponentExtend('test1', extendTestComponent);
+Controller2.registerComponentExtend('test1', {
+    testMethod(){
+        return 'extended test method';
+    },
+    render(){
+        return (<div>extended: {this.testMethod()}</div>);
+    }
+});
 Controller2.registerComponent('test2', testComponent2);
 
 Controller.extendController(Controller2);
@@ -138,7 +145,7 @@ const Controller = new ReactComponentsController();
 
 Controller.registerComponent('test1', testComponent);
 
-Controller.registerComponentExtend('test1', {
+Controller.extendComponent('test1', {
     testMethod(){
         return 'extended test method';
     },
