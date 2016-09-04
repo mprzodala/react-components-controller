@@ -112,6 +112,3 @@ export default ({Controller, ListingTitle}) => {
 * componentName - [String] name of virtual instance where Your component will be displayed
 * props - [Object] Props that React Component will have
 * options - [Object] additional information. You can use it in the component and overwrite defined options
-
-
-TESTS WILL BE SOON
