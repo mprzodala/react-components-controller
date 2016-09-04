@@ -79,17 +79,35 @@ export default ({Controller, ListingTitle}) => {
 * component - [Component] React Component to display
 * options - [Object] of additional information. You can use it in the component
 
+```js
+const Controller = new ReactComponentsController();
+Controller.registerComponent('ListingWrapper', testComponentWrapper);
+Controller.registerComponent('ListingContainer', testComponentContainer);
+Controller.registerComponent('ListingItem', testComponentItem);
+```
+
 
 **registerBeforeComponent(componentName, component)**
 
 * componentName - [String] name of virtual instance where main component will be displayed after this component
 * component - [Component] React Component to display
 
+```js
+const Controller = new ReactComponentsController();
+Controller.registerComponent('ListingWrapper', testComponentWrapper);
+Controller.registerBeforeComponent('ListingWrapper', testComponentBefore);
+```
 
 **registerAfterComponent(componentName, component)**
 
 * componentName - [String] name of virtual instance where main component will be displayed before this component
 * component - [Component] React Component to display
+
+```js
+const Controller = new ReactComponentsController();
+Controller.registerComponent('ListingWrapper', testComponentWrapper);
+Controller.registerAfterComponent('ListingWrapper', testComponentAfter);
+```
 
 **registerComponentExtend(componentName, extend, options)**
 
@@ -97,18 +115,68 @@ export default ({Controller, ListingTitle}) => {
 * extend - [Object] Object with function that will be extended and overwrite
 * options - [Object] of additional information. You can use it in the component
 
+```js
+const Controller = new ReactComponentsController();
+const Controller2 = new ReactComponentsController();
+
+Controller.registerComponent('test1', testComponent);
+
+Controller2.registerComponentExtend('test1', extendTestComponent);
+Controller2.registerComponent('test2', testComponent2);
+
+Controller.extendController(Controller2);
+```
+
 **extendComponent(componentName, extend, options)**
 
 * componentName - [String] name of virtual instance where main component will be displayed
 * extend - [Object] Object with function that will be extended and overwrite
 * options - [Object] of additional information. You can use it in the component
 
+```js
+const Controller = new ReactComponentsController();
+
+Controller.registerComponent('test1', testComponent);
+
+Controller.registerComponentExtend('test1', {
+    testMethod(){
+        return 'extended test method';
+    },
+    render(){
+        return (<div>extended: {this.testMethod()}</div>);
+    }
+});
+```
+
 **extendController(controller)**
 
 * controller - [DynamicController] more important controller that will overwrite old controller 
+
+```js
+const Controller = new ReactComponentsController();
+const Controller2 = new ReactComponentsController();
+
+Controller.registerComponent('test1', testComponent);
+
+Controller2.registerComponent('test1', testComponent2);
+Controller2.registerComponent('test2', testComponent2);
+
+Controller.extendController(Controller2);
+```
 
 **getComponent(componentName, props, options)**
 
 * componentName - [String] name of virtual instance where Your component will be displayed
 * props - [Object] Props that React Component will have
 * options - [Object] additional information. You can use it in the component and overwrite defined options
+
+```js
+const Controller = new ReactComponentsController();
+Controller.registerComponent('test1', testComponent);
+
+
+export default ({someParam}) => (
+    <div>{Controller.getComponent('test1', someParam)}</div>
+)
+
+```
