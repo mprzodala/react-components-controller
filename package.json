@@ -1,6 +1,6 @@
 {
   "name": "react-components-controller",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "description": "Controller for React components",
